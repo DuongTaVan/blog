@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<style type="text/css">
+		input{
+			margin: 5px;
+		}
+		.content{
+			width: 500px;
+			margin: 0 auto;
+			border: 1px solid blue;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<div class="content">
+		Tiêu đề: <input type="text" id="tieude"><br>
+		Người nhận: <input type="text" id="nguoinhan"><br>
+		File đính kèm: <input type="text" id="filedinhkem"><br>
+		Nội dung: <input style="height: 50px" type="text" id="noidung"><br>
+		<input type="submit" value="Gửi đi" onclick="guidi()" ><input type="submit" value="Hủy bỏ" >
+		</div>
+	</form>
+	<script type="text/javascript">
+	function guidi(){
+	var a = document.getElementById('tieude').value;
+	var b = document.getElementById('nguoinhan').value;
+	var c = document.getElementById('filedinhkem').value;
+	var d = document.getElementById('noidung').value;
+	//document.write(a);
+	if (a == '') {
+		alert("Tiêu đề không được để trống!");
+		return;
+	}
+	if (b == '') {
+		alert("Người nhận không được để trống!");
+		return;
+	}
+	if (c == '') {
+		alert("File đính kèm không được để trống!");
+		return;
+	}
+	if (d == '') {
+		alert("Nội dung không được để trống!");
+		return;
+	}
+	var kt = '1234567890-=+[];"?/|!@#$%^&*()_{}"<>';
+	//var t = kt.indexOf(3);
+	// t = c.charAt(3);
+	// 	document.write(t);
+	for(var i=0; i<c.length;i++)
+	{
+		t = kt.indexOf(c.charAt(i));
+		if (t >=0) {
+			alert("File đính kèm không được chứa các kí tự đặc biệt!");
+			return;
+		}
+	}
+	alert("OK");
+}
+</script>
+</body>
+
+</html>
